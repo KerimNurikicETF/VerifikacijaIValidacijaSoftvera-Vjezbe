@@ -52,6 +52,8 @@ namespace Zadatak1
                 z3.PregledajZivotinju(info, napomena, "5");
             }
             z3.PregledajZivotinju(info, napomena, "3");
+
+            z3.ProvjeriStanjeZivotinje();
             z1.ProvjeriStanjeZivotinje();
             z2.ProvjeriStanjeZivotinje();
 
