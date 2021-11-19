@@ -30,10 +30,11 @@ namespace Zadatak1
             Kupovina kupovina3 = new Kupovina("3", DateTime.Now.AddDays(-2), DateTime.Now.AddDays(2), proizvod3, 1, false);
             Assert.IsFalse(kupovina3.VerificirajKupovinu());
 
-            Kupovina kupovina4 = new Kupovina("3", DateTime.Now.AddDays(-2), DateTime.Now.AddDays(80), proizvod3, 1, false);
+            Kupovina kupovina4 = new Kupovina("3", DateTime.Now.AddDays(-1), DateTime.Now.AddDays(4), proizvod1, 1, false);
             Assert.IsTrue(kupovina4.VerificirajKupovinu());
 
-
+            Kupovina kupovina5 = new Kupovina("3", DateTime.Now.AddDays(-2), DateTime.Now.AddDays(2), proizvod2, 1, false);
+            Assert.IsFalse(kupovina5.VerificirajKupovinu());
 
             //Zivotinja z4 = new Zivotinja(ZivotinjskaVrsta.Ovca, DateTime.Now.AddDays(-3650), 50, 88, lokacija);
             //Proizvod proizvod4 = new Proizvod("Proizvod", "Opis", "Vuna", z4, DateTime.Now.AddDays(-2), DateTime.Now.AddDays(25), 2);
