@@ -44,17 +44,20 @@ namespace Zadatak1
         {
             Zivotinja z1 = new Zivotinja(ZivotinjskaVrsta.Guska, new DateTime(2014, 1, 1), 25, 25, lokacija);
             Zivotinja z2 = new Zivotinja(ZivotinjskaVrsta.Guska, new DateTime(2013, 2, 2), 25, 25, lokacija);
+            Zivotinja z3 = new Zivotinja(ZivotinjskaVrsta.Guska, new DateTime(2013, 2, 2), 25, 25, lokacija);
             for (int i = 0; i < 5; i++)
             {
                 z1.PregledajZivotinju(info, napomena, "3.5");
                 z2.PregledajZivotinju(info, napomena, "2.9");
-
+                z3.PregledajZivotinju(info, napomena, "5");
             }
+            z3.PregledajZivotinju(info, napomena, "3");
             z1.ProvjeriStanjeZivotinje();
             z2.ProvjeriStanjeZivotinje();
 
             Assert.IsFalse(z1.Proizvođač); //Starija od 7 godina, i posljednji pregled ima ocjenu <= 3.5
             Assert.IsFalse(z2.Proizvođač); //Starija od 7 godina, i posljednji pregled ima ocjenu <=3.5
+            Assert.IsFalse(z3.Proizvođač); // Starija od 7 godina, posljednja ocjena <=3, prosjek > 4
         }
 
         [TestMethod]
