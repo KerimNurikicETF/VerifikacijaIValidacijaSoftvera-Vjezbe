@@ -11,7 +11,7 @@ namespace Zadatak1
         [TestMethod]
         public void Test1VerfikacijaKupovine()
         {
-            List<string> lista = new List<string>() {"Naziv Farme", "Adresa Farme", "31", "Sarajevo", "71000", "Bosna i Hercegovina"};
+            List<string> lista = new List<string>() { "Naziv Farme", "Adresa Farme", "31", "Sarajevo", "71000", "Bosna i Hercegovina" };
             Lokacija lokacija = new Lokacija(lista, 50);
 
             Zivotinja z1 = new Zivotinja(ZivotinjskaVrsta.Krava, DateTime.Now.AddYears(-10), 10, 50, lokacija);
@@ -37,6 +37,6 @@ namespace Zadatak1
             Assert.IsFalse(kupovina5.VerificirajKupovinu());
 
 
-        }
+        }    
     }
 }
