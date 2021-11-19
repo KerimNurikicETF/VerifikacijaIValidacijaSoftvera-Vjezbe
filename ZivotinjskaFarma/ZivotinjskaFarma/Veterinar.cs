@@ -19,6 +19,7 @@ namespace ZivotinjskaFarma
         }
     }
 
+    //Emina Basic
     public class Spy: IVeterinar
     {
         public double ocjenaZdravstvenogStanjaZivotinje(Zivotinja zivotinja)
