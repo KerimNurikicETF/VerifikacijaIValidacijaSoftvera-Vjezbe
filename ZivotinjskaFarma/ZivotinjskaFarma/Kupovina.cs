@@ -55,7 +55,6 @@ namespace ZivotinjskaFarma
         /// potrebno je vratiti FALSE, a u suprotnom je potrebno vratiti TRUE.
         /// </summary>
         /// <returns></returns>
-        /// Testiranje Emina Basic
         public bool VerificirajKupovinu() // Amer Hrnjić
         {
 
