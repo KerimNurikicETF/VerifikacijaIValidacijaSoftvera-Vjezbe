@@ -99,33 +99,41 @@ namespace ZivotinjskaFarma
                 return;
             }
             //zadnji pregled
-            string posljednjiPregled = pregledi[pregledi.Count - 1];
-            string[] textSplit = posljednjiPregled.Split("\n");
-            string[] textSplit2 = textSplit[2].Split(" ");
-            double ocjena = Convert.ToDouble(textSplit2[1].Replace('.', ','));
-            if (godine > 7 && ocjena <= 3.5)
+            if (pregledi.Count == 1)
             {
-                Proizvođač = false;
-                return;
+
+                string posljednjiPregled = pregledi[pregledi.Count - 1];
+                string[] textSplit = posljednjiPregled.Split("\n");
+                string[] textSplit2 = textSplit[2].Split(" ");
+                double ocjena = Convert.ToDouble(textSplit2[1]);
+                if (godine > 7 && ocjena <= 3.5)
+                {
+                    Proizvođač = false;
+                    return;
+                }
             }
-            //zadnja tri pregleda
-            List<string> zadnjaTriPregleda = new List<string>();
-            zadnjaTriPregleda.Add(pregledi[pregledi.Count - 1]);
-            zadnjaTriPregleda.Add(pregledi[pregledi.Count - 2]);
-            zadnjaTriPregleda.Add(pregledi[pregledi.Count - 3]);
-            double zbir = 0;
-            foreach (string pregled in zadnjaTriPregleda)
-            {
-                string[] s1 = pregled.Split("\n");
-                string[] s2 = s1[2].Split(" ");
-                double o = Convert.ToDouble(s2[1].Replace('.', ','));
-                zbir = zbir + o;
+            else if(pregledi.Count >= 3) 
+            { 
+                //zadnja tri pregleda
+                List<string> zadnjaTriPregleda = new List<string>();
+                zadnjaTriPregleda.Add(pregledi[pregledi.Count - 1]);
+                zadnjaTriPregleda.Add(pregledi[pregledi.Count - 2]);
+                zadnjaTriPregleda.Add(pregledi[pregledi.Count - 3]);
+                double zbir = 0;
+                foreach (string pregled in zadnjaTriPregleda)
+                {
+                    string[] s1 = pregled.Split("\n");
+                    string[] s2 = s1[2].Split(" ");
+                    double o = Convert.ToDouble(s2[1]);
+                    zbir = zbir + o;
+                }
+                if (zbir / 3.0 < 4)
+                {
+                    Proizvođač = false;
+                    return;
+                }
             }
-            if (zbir / 3.0 < 4)
-            {
-                Proizvođač = false;
-                return;
-            }
+            return;
         }
 
         public void PregledajZivotinju(string osnovneInfo, string napomena, string ocjena)
