@@ -99,7 +99,7 @@ namespace ZivotinjskaFarma
                 return;
             }
             //zadnji pregled
-            if (pregledi.Count == 1)
+            if (pregledi.Count >= 1)
             {
 
                 string posljednjiPregled = pregledi[pregledi.Count - 1];
@@ -112,7 +112,7 @@ namespace ZivotinjskaFarma
                     return;
                 }
             }
-            else if(pregledi.Count >= 3) 
+            if(pregledi.Count >= 3) 
             { 
                 //zadnja tri pregleda
                 List<string> zadnjaTriPregleda = new List<string>();
