@@ -74,19 +74,30 @@ namespace ZivotinjskaFarma
 
         public void SpecijalizacijaFarme(ZivotinjskaVrsta vrsta, int brojGrla)
         {
-            zivotinje.Clear();
-            lokacije.Clear();
-            for (int i = 0; i < brojGrla; i++)
+            if (vrsta == ZivotinjskaVrsta.Koza)
             {
-                if (i % 25 == 0)
-                {
+                throw new InvalidOperationException("Ne moze se uraditi specijalizacija ukoliko je zivotinjska vrsta koza");
+            }
 
-                }
+            if(brojGrla>=1000)
+            {
+                throw new ArgumentException("Previse grla!");
+            }
+
+            
+            int k = brojGrla / 25;
+            if (vrsta != ZivotinjskaVrsta.Magarac)
+            {
+                zivotinje.Clear();
+                lokacije.Clear();
+            }
+            
+            for (int i = lokacije.Count; i < brojGrla; i++)
+            {
                 if (i % 4 == 0)
                 {
                     zivotinje.Add(new Zivotinja(vrsta, new DateTime(2010, 1, 1), 25, 10,
                         new Lokacija(new List<string>() { "Velika štala", "Seoski put", "12", "Split", "21000", "Bosna i Hercegovina" }, 25.22)));
-                    lokacije.Add(new Lokacija(new List<string>() { "Velika štala", "Seoski put", "12", "Split", "21000", "Bosna i Hercegovina" },25));
                 }
                 else
                 {
@@ -94,6 +105,12 @@ namespace ZivotinjskaFarma
                         new Lokacija(new List<string>() { "Velika štala", "Seoski put", "12", "Split", "21000", "Hrvatska" }, 25.22)));
                 }
 
+            }
+            int j = lokacije.Count;
+            while (j < k)
+            {
+                lokacije.Add(new Lokacija(new List<string>() { "Velika štala", "Seoski put", "12", "Split", "21000", "Bosna i Hercegovina" }, 25));
+                j++;
             }
         }
 
