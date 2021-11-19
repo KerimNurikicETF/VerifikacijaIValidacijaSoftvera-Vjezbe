@@ -20,7 +20,7 @@ namespace Zadatak1
             Assert.IsFalse(kupovina1.VerificirajKupovinu());
 
 
-            Zivotinja z2 = new Zivotinja(ZivotinjskaVrsta.Kokoöka, DateTime.Now.AddDays(-1), 5, 50, lokacija);
+            Zivotinja z2 = new Zivotinja(ZivotinjskaVrsta.Koko≈°ka, DateTime.Now.AddDays(-1), 5, 50, lokacija);
             Proizvod proizvod2 = new Proizvod("Proizvod", "Opis", "Jaja", z2, DateTime.Now.AddDays(-10), DateTime.Now.AddDays(80), 3);
             Kupovina kupovina2 = new Kupovina("3", DateTime.Now.AddDays(-2), DateTime.Now.AddDays(9), proizvod2, 1, false);
             Assert.IsFalse(kupovina2.VerificirajKupovinu());
