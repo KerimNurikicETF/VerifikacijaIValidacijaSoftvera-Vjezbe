@@ -18,4 +18,15 @@ namespace ZivotinjskaFarma
             throw new NotImplementedException();
         }
     }
+
+    public class Spy: IVeterinar
+    {
+        public double ocjenaZdravstvenogStanjaZivotinje(Zivotinja zivotinja)
+        {
+            if (zivotinja.Vrsta == ZivotinjskaVrsta.Patka)
+                return 5;
+            return 4;
+            //throw new NotImplementedException();
+        }
+    }
 }
