@@ -79,6 +79,7 @@ namespace Zadatak_2
             Assert.IsTrue(f.Zivotinje.FindAll(z => z.Vrsta == ZivotinjskaVrsta.Magarac).Count == 100);
             Assert.IsTrue(f.Zivotinje.Contains(magarac));
             int brojLokacija = f.Zivotinje.Count / 25;
+            Console.WriteLine(brojLokacija);
             Assert.IsTrue(Math.Abs(f.Lokacije.Count - brojLokacija) < 0.1);
             Assert.IsTrue(f.Lokacije.FindAll(l => l.Naziv == "Velika štala" && l.Država == "Bosna i Hercegovina").Count == brojLokacija);
             Assert.IsTrue(f.Lokacije.Contains(staraStala));
