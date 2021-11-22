@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Lokacije>
+	<Lokacija>
+		<Naziv></Naziv>
+		<Adresa>Omladinsko šetalište</Adresa>
+		<BrojUlice>5</BrojUlice>
+		<Grad>Sarajevo</Grad>
+		<PostanskiBroj>71000</PostanskiBroj>
+		<Drzava>Bosna i Hercegovina</Drzava>
+		<Povrsina>50</Povrsina>
+	</Lokacija>
+	<Lokacija>
+		<Naziv>Farmica</Naziv>
+		<Adresa></Adresa>
+		<BrojUlice>5</BrojUlice>
+		<Grad>Sarajevo</Grad>
+		<PostanskiBroj>71000</PostanskiBroj>
+		<Drzava>Bosna i Hercegovina</Drzava>
+		<Povrsina>50</Povrsina>
+	</Lokacija>
+	<Lokacija>
+		<Naziv>Farmica</Naziv>
+		<Adresa>Omladinsko šetalište</Adresa>
+		<BrojUlice></BrojUlice>
+		<Grad>Sarajevo</Grad>
+		<PostanskiBroj>71000</PostanskiBroj>
+		<Drzava>Bosna i Hercegovina</Drzava>
+		<Povrsina>50</Povrsina>
+	</Lokacija>
+	<Lokacija>
+		<Naziv>Farmica</Naziv>
+		<Adresa>Omladinsko šetalište</Adresa>
+		<BrojUlice>5</BrojUlice>
+		<Grad></Grad>
+		<PostanskiBroj>71000</PostanskiBroj>
+		<Drzava>Bosna i Hercegovina</Drzava>
+		<Povrsina>50</Povrsina>
+	</Lokacija>
+	<Lokacija>
+		<Naziv>Farmica</Naziv>
+		<Adresa>Omladinsko šetalište</Adresa>
+		<BrojUlice>5</BrojUlice>
+		<Grad>Sarajevo</Grad>
+		<PostanskiBroj></PostanskiBroj>
+		<Drzava>Bosna i Hercegovina</Drzava>
+		<Povrsina>50</Povrsina>
+	</Lokacija>
+	<Lokacija>
+		<Naziv>Farmica</Naziv>
+		<Adresa>Omladinsko šetalište</Adresa>
+		<BrojUlice>5</BrojUlice>
+		<Grad>Sarajevo</Grad>
+		<PostanskiBroj>71000</PostanskiBroj>
+		<Drzava></Drzava>
+		<Povrsina>50</Povrsina>
+	</Lokacija>
+	<Lokacija>
+		<Naziv>Farmica</Naziv>
+		<Adresa>Omladinsko šetalište</Adresa>
+		<BrojUlice>5</BrojUlice>
+		<Grad>Sarajevo</Grad>
+		<PostanskiBroj>71000</PostanskiBroj>
+		<Drzava>Bosna i Hercegovina</Drzava>
+		<Povrsina>0</Povrsina>
+	</Lokacija>
+
+	<Lokacija>
+		<Naziv>Farmica</Naziv>
+		<Adresa>Omladinsko šetalište</Adresa>
+		<BrojUlice>5</BrojUlice>
+		<Grad>Beograd</Grad>
+		<PostanskiBroj>71000</PostanskiBroj>
+		<Drzava>Bosna i Hercegovina</Drzava>
+		<Povrsina>50</Povrsina>
+	</Lokacija>
+	<Lokacija>
+		<Naziv>Farmica</Naziv>
+		<Adresa>Omladinsko šetalište</Adresa>
+		<BrojUlice>5</BrojUlice>
+		<Grad>Sarajevo</Grad>
+		<PostanskiBroj>20</PostanskiBroj>
+		<Drzava>Bosna i Hercegovina</Drzava>
+		<Povrsina>50</Povrsina>
+	</Lokacija>
+	<Lokacija>
+		<Naziv>Farmica</Naziv>
+		<Adresa>Omladinsko šetalište</Adresa>
+		<BrojUlice>5</BrojUlice>
+		<Grad>Sarajevo</Grad>
+		<PostanskiBroj>71000</PostanskiBroj>
+		<Drzava>Srbija</Drzava>
+		<Povrsina>50</Povrsina>
+	</Lokacija>
+	<Lokacija>
+		<Naziv>Farmica</Naziv>
+		<Adresa>Omladinsko šetalište</Adresa>
+		<Grad>Sarajevo</Grad>
+		<PostanskiBroj>71000</PostanskiBroj>
+		<Povrsina>50</Povrsina>
+	</Lokacija>
+	
+</Lokacije>
