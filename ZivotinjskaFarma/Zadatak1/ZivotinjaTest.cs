@@ -105,6 +105,9 @@ namespace Zadatak1
                 z2.PregledajZivotinju(info, napomena, "4");
             }
 
+            z1.ProvjeriStanjeZivotinje();
+            z2.ProvjeriStanjeZivotinje();
+
             Assert.IsTrue(z1.Proizvođač);
             Assert.IsTrue(z2.Proizvođač);
         }

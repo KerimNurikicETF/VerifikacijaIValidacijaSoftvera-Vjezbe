@@ -41,10 +41,10 @@ namespace Zadatak3
             Lokacija l = new Lokacija(parametri, povrsina);
             Assert.AreEqual(l.Grad, "Sarajevo");
             Assert.AreEqual(l.Naziv, "Farmica");
-            Assert.IsTrue(l.PoštanskiBroj == 71000);
-            Assert.IsTrue(l.Površina > 0);
-            Assert.AreEqual(l.Država, "Bosna i Hercegovina");
-            Assert.IsTrue(l.Adresa == "Omladinsko šetalište");
+            Assert.IsTrue(l.PoÅ¡tanskiBroj== 71000);
+            Assert.IsTrue(l.PovrÅ¡ina > 0);
+            Assert.AreEqual(l.DrÅ¾ava, "Bosna i Hercegovina");
+            Assert.IsTrue(l.Adresa == "Omladinsko Å¡etaliÅ¡te");
             Assert.IsTrue(l.BrojUlice == 5);
 
         }
@@ -52,7 +52,7 @@ namespace Zadatak3
         [ExpectedException(typeof(ArgumentException))]
         public void Test1Setteri()
         {
-            Lokacija l = new Lokacija(new List<string>{ "Farmica", "Omladinsko šetalište", "5", "Sarajevo", "71000", "Bosna i Hercegovina"}, 50);
+            Lokacija l = new Lokacija(new List<string>{ "Farmica", "Omladinsko Å¡etaliÅ¡te", "5", "Sarajevo", "71000", "Bosna i Hercegovina"}, 50);
             l.Naziv = "";
         }
 
@@ -60,7 +60,7 @@ namespace Zadatak3
         [ExpectedException(typeof(ArgumentException))]
         public void Test2Setteri()
         {
-            Lokacija l = new Lokacija(new List<string> { "Farmica", "Omladinsko šetalište", "5", "Sarajevo", "71000", "Bosna i Hercegovina" }, 50);
+            Lokacija l = new Lokacija(new List<string> { "Farmica", "Omladinsko Å¡etaliÅ¡te", "5", "Sarajevo", "71000", "Bosna i Hercegovina" }, 50);
             l.Adresa = "";
         }
 
@@ -68,7 +68,7 @@ namespace Zadatak3
         [ExpectedException(typeof(ArgumentException))]
         public void Test3Setteri()
         {
-            Lokacija l = new Lokacija(new List<string> { "Farmica", "Omladinsko šetalište", "5", "Sarajevo", "71000", "Bosna i Hercegovina" }, 50);
+            Lokacija l = new Lokacija(new List<string> { "Farmica", "Omladinsko Å¡etaliÅ¡te", "5", "Sarajevo", "71000", "Bosna i Hercegovina" }, 50);
             l.BrojUlice = -40;
         }
 
@@ -76,8 +76,8 @@ namespace Zadatak3
         [ExpectedException(typeof(ArgumentException))]
         public void Test4Setteri()
         {
-            Lokacija l = new Lokacija(new List<string> { "Farmica", "Omladinsko šetalište", "5", "Sarajevo", "71000", "Bosna i Hercegovina" }, 50);
-            l.Površina = -2000;
+            Lokacija l = new Lokacija(new List<string> { "Farmica", "Omladinsko Å¡etaliÅ¡te", "5", "Sarajevo", "71000", "Bosna i Hercegovina" }, 50);
+            l.PovrÅ¡ina = -2000;
         }
 
         public static IEnumerable<object[]> UcitajNeispravnePodatkeXML()

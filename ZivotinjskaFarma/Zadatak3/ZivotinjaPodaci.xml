@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Zivotinje>
+	<Zivotinja>
+		<vrsta>Krava</vrsta>
+		<starost>01/01/2000</starost>
+		<masa>15</masa>
+		<visina>100</visina>
+	</Zivotinja>
+</Zivotinje>
