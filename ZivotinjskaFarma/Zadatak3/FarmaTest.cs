@@ -10,17 +10,6 @@ namespace Zadatak3
     public class FarmaTest
     {
 
-        //Zivotinja z1 = new Zivotinja(ZivotinjskaVrsta.Koza, DateTime.Now.AddYears(-7),75,40,lokacija1);
-        //Zivotinja z2 = new Zivotinja(ZivotinjskaVrsta.Krava, DateTime.Now.AddYears(-10), 100, 50, lokacija1);
-        //Zivotinja z3 = new Zivotinja(ZivotinjskaVrsta.Patka, DateTime.Now.AddYears(-4), 10, 10, lokacija1);
-
-        //Proizvod p1 = new Proizvod("Proizvod1","Neki Opis","Sir",z2,DateTime.Now.AddMonths(-1),DateTime.Now.AddMonths(2),3);
-        //Proizvod p2 = new Proizvod("Proizvod2","Neki Opis2","Mlijeko",z1,DateTime.Now.AddDays(-15),DateTime.Now.AddMonths(2),5);
-
-        //Kupovina k1 = new Kupovina( "Kupac123", DateTime.Now,DateTime.Now.AddDays(4), p1, 2, false );
-        //Kupovina k2 = new Kupovina( "Kupac123", DateTime.Now,DateTime.Now.AddDays(3),p2,1,false);
-
-
         [TestMethod]
         public void RadSaZivotinjamaDodavanje()
         {
