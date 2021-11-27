@@ -208,17 +208,17 @@ namespace ZivotinjskaFarma
                 koeficijentPoreza = 0;
                 if (lokacija.Površina > 10000)
                 {
-                    koeficijentPoreza += 0.2f;
+                    koeficijentPoreza += 0.02f;
                 }
                 if (lokacija.Površina >= 1000 && lokacija.Površina <= 10000)
                 {
                     if (lokacija.Država == "Bosna i Hercegovina")
                     {
-                        koeficijentPoreza = koeficijentPoreza + 0.15f;
+                        koeficijentPoreza = koeficijentPoreza + 0.015f;
                     }
                     else
                     {
-                        koeficijentPoreza += 0.5f;
+                        koeficijentPoreza += 0.05f;
                     }
 
                 }
@@ -226,11 +226,11 @@ namespace ZivotinjskaFarma
                 {
                     if (new string[] { "Sarajevo", "Tuzla", "Zenica", "Mostar" }.Contains(lokacija.Grad))
                     {
-                        koeficijentPoreza += 0.1f;
+                        koeficijentPoreza += 0.01f;
                     }
                     else
                     {
-                        koeficijentPoreza += 0.3f;
+                        koeficijentPoreza += 0.03f;
                     }
                 }
                 porez += osnovica * koeficijentPoreza;
