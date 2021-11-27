@@ -1,6 +1,10 @@
+using CsvHelper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
+using System.Linq;
 using System.Xml;
 using ZivotinjskaFarma;
 
@@ -18,11 +22,11 @@ namespace Zadatak3
                 return UcitajNeispravnePodatkeXML();
             }
         }
-        static IEnumerable<object[]> LokacijaIXML
+        static IEnumerable<object[]> LokacijaICSV
         {
             get
             {
-                return UcitajispravnePodatkeXML();
+                return UcitajispravnePodatkeCSV();
             }
         }
 
@@ -35,7 +39,7 @@ namespace Zadatak3
         }
 
         [TestMethod]
-        [DynamicData("LokacijaIXML")]
+        [DynamicData("LokacijaICSV")]
         public void TestIspravniPodaci(List<string> parametri, double povrsina)
         {
             Lokacija l = new Lokacija(parametri, povrsina);
@@ -48,6 +52,7 @@ namespace Zadatak3
             Assert.IsTrue(l.BrojUlice == 5);
 
         }
+
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
         public void Test1Setteri()
@@ -100,23 +105,24 @@ namespace Zadatak3
             }
         }
 
-        public static IEnumerable<object[]> UcitajispravnePodatkeXML()
+        public static IEnumerable<object[]> UcitajispravnePodatkeCSV()
         {
-            XmlDocument doc = new XmlDocument();
-            doc.Load("LokacijaIspravniPodaci.xml");
-            foreach (XmlNode node in doc.DocumentElement.ChildNodes)
+            using (var reader = new StreamReader("LokacijaIspravniPodaci.csv"))
+            using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
             {
-                List<string> elements = new List<string>();
-                foreach (XmlNode innerNode in node)
+                var rows = csv.GetRecords<dynamic>();
+                foreach (var row in rows)
                 {
-                    elements.Add(innerNode.InnerText);
+                    var values = ((IDictionary<String, Object>)row).Values;
+                    var elements = values.Select(elem => elem.ToString()).ToList();
+
+                    List<string> parametri = new List<string>();
+                    for (int i = 0; i < elements.Count - 1; i++)
+                    {
+                        parametri.Add(elements[i]);
+                    }
+                    yield return new object[] { parametri, Convert.ToDouble(elements[elements.Count - 1]) };
                 }
-                List<string> parametri = new List<string>();
-                for (int i = 0; i < elements.Count - 1; i++)
-                {
-                    parametri.Add(elements[i]);
-                }
-                yield return new object[] { parametri, Convert.ToDouble(elements[elements.Count - 1]) };
             }
         }
     }
