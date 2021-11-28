@@ -28,10 +28,10 @@
     <None Update="LokacijaNeispravniPodaci.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="NeispravneZivotinje.xml">
+    <None Update="NeispravneZivotinje.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="NeispravniProizvodi.xml">
+    <None Update="NeispravniProizvodi.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="ZivotinjaPodaci.xml">

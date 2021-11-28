@@ -1,6 +1,9 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using CsvHelper;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +15,7 @@ namespace Zadatak3
     [TestClass]
     public class ZivotinjaTest //Kerim Nurikic
     {
+        static Lokacija lokacija = new Lokacija(new List<string>{"Farmica", "Omladinsko šetalište", "5", "Sarajevo", "71000", "Bosna i Hercegovina"},50);
         static IEnumerable<object[]> ZivotinjaXML
         {
             get
@@ -20,17 +24,17 @@ namespace Zadatak3
             }
         }
 
-        static IEnumerable<object[]> ZivotinjaNeispravniXML
+        static IEnumerable<object[]> ZivotinjaNeispravniCSV
         {
             get
             {
-                return UcitajPodatkeXML("NeispravneZivotinje.xml");
+                return UcitajPodatkeCSV();
             }
         }
 
         [TestMethod]
         [DynamicData("ZivotinjaXML")]
-        public void IspravniPodaci(ZivotinjskaVrsta vrsta, DateTime starost, double masa, double visina, Lokacija lokacija)
+        public void IspravniPodaci(ZivotinjskaVrsta vrsta, DateTime starost, double masa, double visina)
         {
             Zivotinja z1 = new Zivotinja(vrsta, starost, masa, visina, lokacija);
             Assert.AreEqual(z1.Starost, starost);
@@ -40,9 +44,9 @@ namespace Zadatak3
         }
 
         [TestMethod]
-        [DynamicData("ZivotinjaNeispravniXML")]
+        [DynamicData("ZivotinjaNeispravniCSV")]
         [ExpectedException(typeof(FormatException))]
-        public void NeispravniPodaci(ZivotinjskaVrsta vrsta, DateTime starost, double masa, double visina, Lokacija lokacija)
+        public void NeispravniPodaci(ZivotinjskaVrsta vrsta, DateTime starost, double masa, double visina)
         {
             Zivotinja zivotinja = new Zivotinja(vrsta, starost, masa, visina, lokacija);
         }
@@ -53,19 +57,7 @@ namespace Zadatak3
             XmlDocument doc = new XmlDocument();
             doc.Load(xml);
 
-            XmlDocument docLokacija = new XmlDocument();
-            docLokacija.Load("LokacijaIspravniPodaci.xml");
-            List<string> elementsLokacija = new List<string>();
-            foreach (XmlNode innerNode in docLokacija.DocumentElement.ChildNodes[0])
-            {
-                elementsLokacija.Add(innerNode.InnerText);
-            }
-
-            List<string> parametri = new List<string>();
-            for (int i = 0; i < elementsLokacija.Count - 1; i++)
-            {
-                parametri.Add(elementsLokacija[i]);
-            }
+            XmlDocument docLokacija = new XmlDocument(); 
 
             foreach (XmlNode node in doc.DocumentElement.ChildNodes)
             {
@@ -77,8 +69,25 @@ namespace Zadatak3
                 ZivotinjskaVrsta vrsta;
                 Enum.TryParse(elements[0], out vrsta);
 
-                yield return new object[] {vrsta, DateTime.Parse(elements[1]),Convert.ToDouble(elements[2]),Convert.ToDouble(elements[3]),
-                    new Lokacija(parametri,Convert.ToDouble(elementsLokacija[elementsLokacija.Count - 1]))};
+                yield return new object[] {vrsta, DateTime.Parse(elements[1]),Convert.ToDouble(elements[2]),Convert.ToDouble(elements[3])};
+            }
+        }
+
+        public static IEnumerable<object[]> UcitajPodatkeCSV()
+        {
+            using (var reader = new StreamReader("NeispravneZivotinje.csv"))
+            using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+            {
+                var rows = csv.GetRecords<dynamic>();
+                foreach (var row in rows)
+                {
+                    var values = ((IDictionary<String, Object>)row).Values;
+                    var elements = values.Select(elem => elem.ToString()).ToList();
+                    ZivotinjskaVrsta vrsta;
+                    Enum.TryParse(elements[0], out vrsta);
+                    yield return new object[] { vrsta, DateTime.Parse(elements[1]),
+                    Convert.ToDouble(elements[2]), Convert.ToDouble(elements[3])};
+                }
             }
         }
 
